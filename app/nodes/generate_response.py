@@ -121,7 +121,7 @@ def generate_response(state: State) -> Dict[str, List[str]]:
         top_p=0.95,
         temperature=0.6,
         do_sample=True,
-        batch_size=4, # Adjust based on your hardware
+        batch_size=16, # Adjust based on your hardware
     )
 
     # 3. Wrap the pipeline with HuggingFacePipeline
