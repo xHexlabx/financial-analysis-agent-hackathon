@@ -29,8 +29,10 @@ graph = workflow.compile()
 with open("./graph.png" , "wb") as file :
     file.write(graph.get_graph().draw_mermaid_png())
 
-queries = pd.read_csv("./data/test.csv")['query'][0 : 4]
-queries_type = [0, 1, 1, 0]
-answer = graph.invoke({"queries": queries, "queries_type" : queries_type})['outputs']
+queries = pd.read_csv("./data/thai_choices_problems.csv")['query'][0 : 16]
+queries_type = [0 for i in range(16)]
 
-print("Answer =" , answer)
+answers = graph.invoke({"queries": queries, "queries_type" : queries_type})['outputs']
+
+for answer in answers :
+    print("Answer =" , answer)
